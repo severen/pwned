@@ -19,16 +19,8 @@ except ImportError:
     print('Cannot access the pwned module, ' +
           'is the source tree broken?')
 
-try:
-    import pypandoc
-
-    if path.exists(readme):
-        long_description = pypandoc.convert(readme, 'rst')
-    else:
-        long_description = None
-except ImportError:
-    print('pypandoc is required for README conversion.')
-    long_description = None
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='pwned',
