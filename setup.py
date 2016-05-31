@@ -6,26 +6,24 @@ from setuptools import setup, find_packages
 
 py_version = version_info[:2]
 if py_version <= (3, 3):
-    print('pwned requires Python version 3.3 or later, ' +
-          '({}.{} detected).'.format(*py_version))
+    print('pwned requires Python version 3.3 or later, ({}.{} detected).'
+          .format(*py_version))
     exit(1)
-
-here = path.abspath(path.dirname(__file__))
-readme = path.join(here, 'README.md')
 
 try:
     import pwned
 except ImportError:
-    print('Cannot access the pwned module, ' +
-          'is the source tree broken?')
+    print('Cannot access the pwned module, is the source tree broken?')
+    exit(1)
 
+here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
     name='pwned',
     version=pwned.__version__,
-    description='Check if you\'ve been pwned via haveibeenpwned.com',
+    description="Check if you've been pwned via haveibeenpwned.com",
     long_description=long_description,
     url='https://github.com/SShrike/pwned',
     author='Severen Redwood',
