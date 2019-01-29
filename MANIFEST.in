@@ -1,5 +1,0 @@
-include tox.ini
-include LICENSE
-include README.rst
-include .editorconfig
-recursive-include tests *.py
