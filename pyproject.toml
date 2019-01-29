@@ -28,6 +28,8 @@ requests = "^2.21"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.1"
+black = { version = "^18.9b0", python = "^3.6" }
+pre-commit = "^1.14"
 
 [tool.poetry.scripts]
 pwned = "pwned.__main__:pwned"
