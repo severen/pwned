@@ -30,9 +30,9 @@ def pwned(email, json):
         "https://haveibeenpwned.com/api/v2/breachedaccount/%s" % email, params=params
     )
 
-    if r.status_code is 404:
+    if r.status_code == 404:
         print("Congratulations, you haven't been pwned!")
-    elif r.status_code is 200:
+    elif r.status_code == 200:
         if json is True:
             print(r.text)
             return
