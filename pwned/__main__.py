@@ -27,7 +27,7 @@ from pwned import __version__
 def pwned(email, json):
     params = {"truncateResponse": "true"}
     r = requests.get(
-        "https://haveibeenpwned.com/api/v2/breachedaccount/%s" % email, params=params
+        "https://haveibeenpwned.com/api/v2/breachedaccount/{}".format(email), params=params
     )
 
     if r.status_code == 404:
@@ -44,7 +44,7 @@ def pwned(email, json):
 
         print("Compromised accounts:")
         for account in r.json():
-            print("• %s" % account["Name"])
+            print("• {}".format(account["Name"]))
 
 
 if __name__ == "__main__":
